@@ -2,12 +2,19 @@
 title: 11ty Boilerplate
 ---
 
+---
+title: 11ty Boilerplate
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/fetch@3.x.x/dist/cdn.min.js"></script>
   <link rel="stylesheet" href="/styles/screen.css">
 </head>
 <body>
@@ -17,6 +24,6 @@ title: 11ty Boilerplate
       <li><a href="/about/" title="About the boilerplate">About</a></li>
     </ul>
   </nav>
-    {{ content }}
+  {{ content }}
 </body>
 </html>
