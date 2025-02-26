@@ -11,19 +11,38 @@ title: 11ty Boilerplate
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
+  <title>Styled API Fetch</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/fetch@3.x.x/dist/cdn.min.js"></script>
   <link rel="stylesheet" href="/styles/screen.css">
+
 </head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="About the boilerplate">About</a></li>
-    </ul>
-  </nav>
-  {{ content }}
+<body class="bg-blue-50 p-8">
+
+  <h1 class="text-3xl font-extrabold text-blue-700 text-center mb-8">
+    JSONPlaceholder Data
+  </h1>
+
+  <div class="max-w-lg mx-auto space-y-8">
+    <div x-data="{ post: {} }" x-init="fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then(res => res.json())
+      .then(data => post = data)">
+      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-gray-800" x-text="post.title"></h2>
+        <p class="text-gray-700 leading-relaxed mt-2" x-text="post.body"></p>
+      </div>
+    </div>
+    <div x-data="{ user: {} }" x-init="fetch('https://jsonplaceholder.typicode.com/users/1')
+      .then(res => res.json())
+      .then(data => user = data)">
+      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-gray-800">User Info</h2>
+        <p class="text-gray-700"><strong>Name:</strong> <span x-text="user.name"></span></p>
+        <p class="text-gray-700"><strong>Email:</strong> <span x-text="user.email"></span></p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
