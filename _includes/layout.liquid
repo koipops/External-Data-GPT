@@ -5,18 +5,25 @@ title: 11ty Boilerplate
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="/styles/screen.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles/screen.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/fetch@3.x.x/dist/cdn.min.js"></script>
+    <script src="/scripts/main.js" defer></script>
+    <script src="/scripts/random.js" defer></script>
+    <script src="/scripts/modal.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="About the boilerplate">About</a></li>
-    </ul>
-  </nav>
-    {{ content }}
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <nav class="bg-blue-600 text-white p-4 flex justify-between items-center shadow-md">
+        <a href="/" class="text-lg font-semibold hover:underline">Home</a>
+        <a href="/about/" class="text-lg font-semibold hover:underline">About</a>
+    </nav>
+
+    <main class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg flex-1">
+        {{ content }}
+    </main>
 </body>
 </html>
