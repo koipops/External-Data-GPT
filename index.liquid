@@ -1,20 +1,20 @@
 ---
+title: Home
 layout: layout.liquid
-title: 11ty Boilerplate
 ---
 
 <h1 class="text-3xl font-bold text-center text-gray-800">JSON Placeholder Data</h1>
 
-<div x-data="fetchPostsAndUsers()" x-init="init()" class="mt-6">
+<div x-data="fetchPostsAndUsers()" x-init="init()">
     <h2 class="text-2xl font-semibold text-gray-700 border-b pb-2">Posts</h2>
-    <ul class="space-y-2 mt-4">
+    <ul>
         <template x-for="post in posts" :key="post.id">
             <li class="p-4 bg-gray-100 rounded shadow-md" x-text="post.title"></li>
         </template>
     </ul>
 
     <h2 class="text-2xl font-semibold text-gray-700 border-b pb-2 mt-6">Users</h2>
-    <ul class="space-y-2 mt-4">
+    <ul>
         <template x-for="user in users" :key="user.id">
             <li class="p-4 bg-gray-100 rounded shadow-md" x-text="user.name"></li>
         </template>
