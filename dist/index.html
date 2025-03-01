@@ -9,7 +9,7 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/fetch@3.x.x/dist/cdn.min.js"></script>
-    <script src="/scripts/main.js" defer></script>
+    <script defer src="/scripts/main.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -20,11 +20,11 @@
     </nav>
 
     <main class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg flex-1">
-        
-<h1 class="text-3xl font-bold text-center text-gray-800">JSON Placeholder Data</h1>
+        <h1 class="text-3xl font-bold text-center text-gray-800">JSON Placeholder Data</h1>
 
 <div x-data="fetchPostsAndUsers()" x-init="init()">
     <h2 class="text-2xl font-semibold text-gray-700 border-b pb-2">Posts</h2>
+    <p x-show="posts.length === 0" class="text-red-500">No posts found!</p>
     <ul>
         <template x-for="post in posts" :key="post.id">
             <li class="p-4 bg-gray-100 rounded shadow-md" x-text="post.title"></li>
@@ -32,6 +32,7 @@
     </ul>
 
     <h2 class="text-2xl font-semibold text-gray-700 border-b pb-2 mt-6">Users</h2>
+    <p x-show="users.length === 0" class="text-red-500">No users found!</p>
     <ul>
         <template x-for="user in users" :key="user.id">
             <li class="p-4 bg-gray-100 rounded shadow-md" x-text="user.name"></li>
